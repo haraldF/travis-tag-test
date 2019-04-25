@@ -16,12 +16,10 @@ jobs:
   include:
     - name: "Test"
       script: |
-        set -ex
         echo "Testing..."
 
     - name: "Build & Deploy"
       script: |
-        set -ex
         echo "Building and Deploying"
 
 deploy:
