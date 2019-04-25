@@ -1,0 +1,34 @@
+language: node_js
+dist: xenial
+node_js:
+  - "10"
+
+addons:
+  chrome: stable
+  firefox: latest
+
+branches:
+  only:
+    - master
+    - /^@test\/.*/
+
+jobs:
+  include:
+    - name: "Test"
+      script: |
+        set -ex
+        echo "Testing..."
+
+    - name: "Build & Deploy"
+      script: |
+        set -ex
+        echo "Building and Deploying"
+
+deploy:
+  - provider: script
+    script:
+      - echo "Deploying..."
+    skip_cleanup: true
+    on:
+      tags: true
+      branch: master
